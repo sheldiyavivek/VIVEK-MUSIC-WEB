@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/Romentic/romentic.css">
+    <link rel="shortcut icon" href="IMG/Romentic/favicon.png" type="image/x-icon">
+    <title>Romentic Songs</title>
+</head>
+<body>
+    <div class="main">
+        <div class="music_container">
+            <h2 id="title">Tera Fitoor -Genius</h2>
+            <h3 id="artist">Tips Officials</h3>
+            <div class="image">
+                <img src="IMG/Romentic/Tera_fitoor.jpg" alt="">
+            </div>
+            <audio src="https://blue-mixvo.web.app/MUSIC/Romentic/Tera_fitoor.mp3"></audio>
+
+            <div class="progressbar_container" id="progressbar_container">
+                <div class="progress_duration_meter">
+                    <div class="current_time" id="current_time">00:00</div>
+                    <div class="duration" id="duration">05:33</div>
+                    
+                </div>
+                <div class="progress_div" id="progress_div">
+                        <div class="progress" id="progress"></div>
+                    </div>
+            </div>
+
+            <div class="controls">
+                <i class="fa fa-backward " aria-hidden="true" id="prev" title="Previous">  </i>
+                <i class="fa fa-play btn_play" aria-hidden="true" id="play" title="Play"></i>
+                <i class="fa fa-forward" aria-hidden="true" id="forword" title="Next"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const music = document.querySelector('audio');
+        const img = document.querySelector('img');
+        const play = document.getElementById("play");
+        const title = document.getElementById("title");
+        const artist = document.getElementById("artist");
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("forword");
+        let progress = document.getElementById('progress');
+        let total_duration = document.getElementById('duration');
+        let current_time = document.getElementById('current_time');
+        const progress_div = document.getElementById('progress_div');
+        
+        const songs = [
+            {
+                name : "Tera_fitoor",
+                title : "Tera Fitoor - Genius 2018",
+                artist : "Tips Official",
+            },
+            {
+                name : "Dil_Meri_Na_Sune",
+                title : "Dil Meri Na Sune - Genius 2018",
+                artist : "Tips Official",
+            },
+            {
+                name : "Humnava_Mere",
+                title : "Humnava Mere T-Series",
+                artist : "Jubin Nautiyal",
+            },
+            {
+                name : "O_Saathi",
+                title : "O Saathi Tere Bina - Baghi 2",
+                artist : "T-series",
+            },
+            {
+                name : "Oh-Humsafar",
+                title : "Oh Humsafar T-series",
+                artist : "Neha Kakkar",
+            },
+            {
+                name : "Shayad_Love_Aaj",
+                title : "Shayad -Love Aaj Kal 2020",
+                artist : "T-series",
+            },
+            {
+                name : "Tere_Bin",
+                title : "Tere Bin -Simmba 2020",
+                artist : "T-series",
+            },
+            {
+                name : "Meri_Aashiqui_Song",
+                title : "Meri Aashiqui Song",
+                artist : "Jubin Nautiyal",
+            },
+            {
+                name : "Mile_Ho_Tum",
+                title : "Mile Ho Tum Hamko ",
+                artist : "Neha kakkar",
+            }
+        ]
+        let isPlaying = false;
+
+        // play
+        const playMusic = () =>{
+            isPlaying = true;
+            music.play();
+            play.classList.replace("fa-play","fa-pause")
+            img.classList.add('anime')
+        }
+
+        // pause 
+        const pauseMusic = () =>{
+            isPlaying = false;
+            music.pause();
+            play.classList.replace("fa-pause","fa-play")
+            img.classList.remove('anime')
+        }
+        play.addEventListener('click',() =>{
+            if(isPlaying){
+                pauseMusic();
+            }
+            else{
+                playMusic();
+            }
+        })
+
+        // change music 
+        const loadSongs = (songs) =>{
+            title.textContent = songs.title;
+            artist.textContent = songs.artist;
+            music.src = `https://blue-mixvo.web.app/MUSIC/Romentic/`+songs.name+".mp3";
+            img.src="IMG/Romentic/"+songs.name+".jpg"
+        };
+        songIndex = 0;
+        // loadSongs(songs[0]);
+        const nextSong = () =>{
+            songIndex = (songIndex+1)%songs.length;
+            loadSongs(songs[songIndex]);
+            playMusic();
+        }
+        const prevSong = () =>{
+            songIndex = (songIndex-1 + songs.length)%songs.length;
+            loadSongs(songs[songIndex]);
+            playMusic();
+        }
+
+//Progress 
+        music.addEventListener('timeupdate', (event)=>{
+            // console.log(event)
+            const {currentTime, duration} = event.srcElement;
+            let progress_time = (currentTime / duration)*100;
+            // console.log(progress_time)
+            progress.style.width = `${progress_time}%`;
+            //Duration
+            let min_duration = Math.floor(duration / 60);
+            let sec_duration = Math.floor(duration%60);
+            // console.log(min_duration);
+            // console.log(sec_duration);
+            let tot_duration = `${min_duration}:${sec_duration}`;
+            if(duration){
+                
+                total_duration.textContent = `${tot_duration}` ;
+            }
+            //current duration
+            console.log(currentTime);
+            let cMin = Math.floor(currentTime / 60);
+            let cSec = Math.floor(currentTime%60);
+            // let cTime = Math.floor(currentTime);
+            if(cSec<=9){
+                if(cMin < 10){
+                    current_time.textContent =`0${cMin}:0${cSec}`;
+                }                
+            }
+            else{
+                current_time.textContent =`${cMin}:${cSec}`;
+            }
+        });
+        progress_div.addEventListener("click",(event)=>{
+            console.log(event)
+            const {duration} = music;
+            let move_progress = (event.offsetX / event.srcElement.clientWidth)*duration;
+            music.currentTime= move_progress;
+            console.log(move_progress)
+        });
+        music.addEventListener("ended",nextSong);
+
+        next.addEventListener('click',nextSong);
+        prev.addEventListener('click',prevSong);
+    </script>
+</body>
+</html>

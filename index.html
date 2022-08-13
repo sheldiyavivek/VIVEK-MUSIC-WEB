@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style2.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Texturina:wght@600&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="shortcut icon" href="IMG/BM.png" type="image/x-icon">
+    <title>Blue Mixvo -The ocean of Music</title>
+    <style type="text/css">
+      body{
+        @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: tahoma;
+}
+
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100px;
+  background: #34eeff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0px;
+  width: 100%;
+  position: relative;
+  padding: 0px;
+  filter: url(#goo);
+  z-index: 1;
+}
+
+.menu ul li {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu ul span {
+  background: rgb(67, 11, 11);
+  border-radius: 50px;
+  font-size: 25pt;
+  width: 80px;
+  height: 80px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  color: #333;
+}
+
+.menu ul .goo-index {
+  width: 160px;
+  height: 80px;
+  background: rgb(140, 4, 4);
+  position: absolute;
+  left: 10px;
+  top: 0;
+  z-index: -1;
+  border-radius: 100px 0 0 100px;
+  transition: all 1s ease;
+}
+
+.menu ul .goo-index:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  border-radius: 20px 0 0 20px;
+  background-image: radial-gradient(
+    circle at 10px 0,
+    transparent 0,
+    transparent 20px,
+    rgba(109, 3, 3, 0.418) 20px
+  );
+  top: -20px;
+  left: 60px;
+}
+
+.menu ul .goo-index:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 20px;
+  border-radius: 20px 0 0 20px;
+  background-image: radial-gradient(
+    circle at 10px 20px,
+    transparent 0,
+    transparent 20px,
+    white 20px
+  );
+  bottom: -20px;
+  left: 60px;
+}
+
+.content-wrapper {
+  width: calc(100% - 100px);
+  position: relative;
+  left: 100px;
+  height: 100%;
+  overflow: hidden;
+  padding: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.screen {
+  width: calc(100% - 100px);
+  /* max-width: 800px; */
+  /* max-width: 800px; */
+  height: 100%;
+  position: absolute;
+  top: -100%;
+  background: white;
+  opacity: 0;
+  display: grid;
+  grid-template-rows: 50px auto auto;
+  grid-template-columns: 100%;
+  grid-template-areas: "heading" "text" "image";
+  transition: all 1s ease;
+  transition-delay: 0s;
+}
+
+.screen.visible {
+  top: 50px;
+  opacity: 1;
+  transition: all 1.5s ease;
+  transition-delay: 0.8s ease;
+}
+
+/* .screen h2 {
+  grid-area: heading;
+} */
+
+.screen p {
+  margin-top: 40px;
+  grid-area: text;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center center;
+}
+/* 
+h2 {
+  font-size: 25px;
+  position: relative;
+  text-align: center;
+} */
+
+h2:after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 5px;
+  background: #1fc058;
+  left: calc(50% - 35px);
+  bottom: -15px;
+}
+.content-wrapper .div1 figure img{
+    width: 70%;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    /* padding-left: 10rem; */
+}
+.content-wrapper .div1{
+    align-items: center;
+    margin: auto;
+    /* background-color: thistle;     */
+}
+.content-wrapper #screen_0{
+    /* background-color: thistle; */
+    padding: 1.5rem;
+}
+#div2{
+  width: 100%;
+  margin-top: 36px;
+}
+#screen_0{
+  border: 1px solid #d5ffff;
+  border-radius: 7.5%;
+}
+
+
+.content-wrapper #screen_0 .div1 .div3 p{
+  font-family: 'Play', sans-serif;
+  font-size: 1.5rem;
+}
+
+.content-wrapper #screen_0  .div3 button a{
+  text-decoration: none;
+  padding: 15px;
+  color: hsl(0, 0%, 100%);
+  font-family: 'Play', sans-serif;
+  font-weight: 1000;
+}
+.content-wrapper #screen_0  .div3 button a:hover{
+  text-decoration: none;
+  padding: 15px;
+  color:#ff3434;
+  font-family: 'Play', sans-serif;
+  font-weight: 1000;
+}
+.content-wrapper #screen_0  .div3 button{
+  padding: 0px 26px;
+  align-items: center;
+  background-color:#ff3434;
+  border: 0px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+.content-wrapper #screen_0  .div3 button:hover{
+  padding: 0px 26px;
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #ff3434;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+.content-wrapper #screen_0  .div3 button a h3:hover{
+  color: #000000;
+}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
+}
+
+.card {
+  margin:auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  /* cursor: pointer; */
+  transition: 0.4s;
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+  text-decoration: none;
+  font-family: 'Play', sans-serif;
+}
+
+#ex{
+  color: white;
+}
+
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+  .card {
+    margin: 30px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  .card_title{
+    color: black;
+    
+  }
+  #ex{
+    color: black;
+  }
+  .card_title p{
+    font-size: 1.5rem;
+    
+  }
+  #ex p{
+    font-size: 1.5rem;
+  }
+}
+
+
+.about{
+  background-color: #34eeff;
+  width: 85vw;
+  height: 100vh;
+  border-radius: 26px;
+}
+.about h1{
+  font-family:  'Play', sans-serif;
+  margin-top: 2rem;
+}
+.about p{
+  font-size: 18px;
+  width: 80%;
+  text-align: justify;
+}
+.social-container{
+  font-size: 46px;
+}
+
+
+
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+  h2{
+    font-family: 'Redressed', cursive;
+    font-size: 5rem;
+  }
+}
+h2{
+  font-family: 'Redressed', cursive;
+  font-size: 2.5rem;
+}
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  h2{
+    font-size: 15px;
+  }
+}
+#mvbtn{
+  /* padding: 12px; */
+  color: #000000;
+  background-color: #34eeff;
+  text-decoration: none;
+  border: none;
+  padding: 12px 26px 12px 26px;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 600;
+}
+#mvbtn:hover{
+  padding: 12px 26px 12px 26px;;
+  color: #000000;
+  background-color: white;
+  text-decoration: none;
+  border: 1px solid #34eeff;
+  border-radius: 10px;
+  font-size: large;
+  cursor: pointer;
+  font-weight: 600;
+}
+@media screen and (min-width: 601px) {
+
+}
+h2{
+  font-family: 'Redressed', cursive;
+  font-size: 2.5rem;
+}
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .jumbotron{
+    font-size: medium;
+  }
+  #mvbtn{
+    margin-top: 12px;
+  }
+  .about{
+    background-color: #34eeff;
+    width: 55vw;
+    height: 100vh;
+    border-radius: 26px;
+  }
+  .about h1{
+    font-family:  'Play', sans-serif;
+    margin-top: 12px;
+  }
+  .about p{
+    font-size: 10px;
+    width: 80%;
+    text-align: justify;
+  }
+  .social-container{
+    font-size: 26px;
+  }
+}
+
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="menu">
+      <ul>
+        <li>
+          <span onmouseenter="hoverEnter(0)">
+            <i class="fa fa-home"><img src="https://img.icons8.com/pastel-glyph/64/4a90e2/home.png"/></i>  
+          </span>
+        </li>
+        <li>
+          <span onmouseenter="hoverEnter(1)">
+            <i class="fa fa-edit"><img src="https://img.icons8.com/nolan/64/opened-folder.png"/></i>
+          </span>
+        </li>
+        <li>
+          <span onmouseenter="hoverEnter(2)">
+            <i class="fa fa-laptop"><img src="https://img.icons8.com/nolan/64/opened-folder.png"/></i>
+          </span>
+        </li>
+        <li>
+          <span onmouseenter="hoverEnter(3)">
+            <i class="fa fa-tag" style="margin-top: 10px;"><img src="https://img.icons8.com/ultraviolet/65/000000/clock--v1.png"/></i>
+          </span>
+        </li>
+        <li>
+          <span onmouseenter="hoverEnter(4)">
+            <i class="fa fa-tag"><img src="clear-sky.png" width="50" height="50"/></i>
+          </span>
+        </li> 
+        <span class="goo-index" id="goo-index"></span>
+      </ul>
+    </div>
+
+    <div class="content-wrapper">
+      <div id="screen_0" class="screen visible">
+        <div class="div1">
+          <figure>
+            <center>
+              <img src="IMG/logo1.png" alt="" />
+            </center>
+          </figure>
+          <div id="div2">
+            <h2>Listen Ads Free Music with Choice of your Mood</h2>
+          </div>
+          <div class="div3">
+            <p>Settel your Mind with us ! Join Today</p>
+           <center>
+             <!-- <button>
+              <a href="LOGIN/register.html">  <h3 class="animate__animated animate__heartBeat animate__fast animate__infinite"> <strong> Get Started</strong></h3> </a>
+              </button> -->
+             
+           </center>
+            
+          </div> 
+          
+          </div>
+          
+      </div>
+
+      <div id="screen_1"  class="screen grand_parent">
+        <h2>Category</h2>
+         
+        <div class="cards-list">
+  
+          <div class="card 1">
+            
+            <div class="card_image"> <img src="IMG/Romantic2.gif" /> </div>
+            <div class="card_title title-white">
+              <a href="Romentic.html" class="title-white"><p>Romantic</p></a>
+            </div>
+          </div>
+          
+            <div class="card 2">
+            <div class="card_image">
+              <img src="IMG/Life_M2.jpg" />
+              </div>
+            <div class="card_title title-white">
+              <a href="Motivation.html" class="title-white"><p>Inspiring</p></a>
+            </div>
+          </div>
+          
+          <div class="card 3">
+            <div class="card_image">
+              <img src="IMG/travel.gif" />
+            </div>
+            <div class="card_title title-white">
+              <a href="Travel.html" class="title-white"><p id="ex">Travelling</p></a>
+            </div>
+          </div>
+          </div> 
+        </div>
+
+      <div id="screen_2" class="screen">
+        <h2>Category</h2>
+        <div class="cards-list">
+  
+          <div class="card 1">
+            
+            <div class="card_image"> <img src="IMG/Gujarati/Moti_Veraana.jpg" /> </div>
+            <div class="card_title title-white">
+              <a href="Gujarati.html" class="title-white"><p>Gujarati Folk Songs</p></a>
+            </div>
+          </div>
+          
+            <div class="card 2">
+            <div class="card_image">
+              <img src="IMG/Breakup/card.gif" />
+              </div>
+            <div class="card_title title-white">
+              <a href="Breakup.html" class="title-white"><p>Broken Heart</p></a>
+            </div>
+          </div>
+          
+          <div class="card 3">
+            <div class="card_image">
+              <img src="IMG/POP/card.jpg"/>
+            </div>
+            <div class="card_title title-white">
+              <a href="POP.html" class="title-white"><p>POP songs</p></a>
+            </div>
+          </div>
+          
+          </div> 
+
+      </div>
+
+      <div id="screen_3" class="screen" style="font-family: 'Texturina', serif; font-size:xx-large;">
+        <center>
+          <div class="container my -4">
+              <div class="jumbotron" style="font-family: 'Play', sans-serif;">
+              
+                  <h1 class="display-4">Current time is:<span id="time">   <p Id="demo" style="color: darkgreen;"> </p> <p Id="date">
+                      
+                  </p>
+                  </span>
+                 
+              </div>
+          </div>
+      
+      </center>
+      </div>
+      <div id="screen_4" class="screen">
+        <div class="card_image">
+          <img src="https://www.wallpapertip.com/wmimgs/25-252076_background-image-for-weather-app.jpg" height="800" width="1300"/>
+        </div>
+        <div class="card_title title-white">
+        <center>
+          <a href="wt_innovative.html" class="title-white"><p>Weather</p></a>
+        </center>
+        </div>
+      </div>
+    </div>
+    <script>
+      let gooIndex = document.getElementById("goo-index");
+      let hoverEnter = (index) => {
+        gooIndex.style.top = 100 * index + "px";
+        let allScreens = document.querySelectorAll(".screen");
+        allScreens.forEach((e) => {
+          e.classList.remove("visible");
+        });
+        let nowVisible = document.getElementById("screen_" + index);
+        nowVisible.classList.add("visible");
+      };
+    </script>
+    
+  <script src="Clock/clock.js"></script>
+  </body>
+</html>
+
+
+<!-- 
+<span>
+  <ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JavaScript</li>
+    <li>FireBase</li>
+    <li>Sweetjs{JS Library}</li>
+    <li>Tawk.to</li>
+  </ul>
+</span> -->
